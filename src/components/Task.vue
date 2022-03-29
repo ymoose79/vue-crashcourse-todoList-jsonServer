@@ -1,14 +1,14 @@
 <template>
-  <!-- passing in task but adding reminder class -->
+  <!-- @dbl emit is accomplishes same goal as task.id (bubbling up data) but with 
+1) different syntax and 
+2) no need to include it in methods: below -->
   <div
     @dblclick="$emit('toggle-reminder', task.id)"
     :class="[task.reminder ? 'reminder' : '', 'task']"
   >
+    <!-- :class => passing in task but adding reminder class -->
     <h3>
       {{ task.text }}
-      <!-- @dbl emit is accomplishes same goal as task.id (bubbling up data) but with 
-1) different syntax and 
-2) no need to include it in methods: below -->
       <i @click="onDelete(task.id)" class="fas fa-times"></i>
     </h3>
     <p>{{ task.day }}</p>

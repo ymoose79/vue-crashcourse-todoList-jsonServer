@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     onClick() {
-      this.$emit("toggle-form-display");
+      this.$emit("btn-click");
     },
   },
 };
