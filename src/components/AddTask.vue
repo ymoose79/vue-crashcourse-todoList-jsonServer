@@ -35,11 +35,12 @@ export default {
     onSubmit(e) {
       e.preventDefault();
 
+// if there is no text
       if (!this.text) {
         alert("Please add a task");
         return;
       }
-
+// pass in data into new var 
       const newTask = {
         id: Math.floor(Math.random() * 100000),
         text: this.text,
@@ -47,8 +48,10 @@ export default {
         reminder: this.reminder,
       };
 
-      console.log(newTask);
+// pass data into the event loop
+      this.$emit("add-task", newTask);
 
+// reset form
       this.text = "";
       this.day = "";
       this.reminder = false;

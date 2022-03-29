@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <Header title="here we go" />
-    <AddTask />
+    <div v-if="showAddTask">
+    <AddTask @add-task="addTask" />
+    </div>
     <Tasks
       @toggle-reminder="toggleReminder"
       @delete-task="deleteTask"
@@ -26,9 +28,14 @@ export default {
     return {
       // var defined here
       tasks: [],
+      // toggle rendering of component
+      showAddTask: false
     };
   },
   methods: {
+    addTask(newTask) {
+      this.tasks = [...this.tasks, newTask];
+    },
     deleteTask(id) {
       if (confirm("are you sure?")) {
         this.tasks = this.tasks.filter((task) => task.id !== id);
