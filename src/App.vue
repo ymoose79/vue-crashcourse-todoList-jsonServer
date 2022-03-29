@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <Header title="here we go" />
+    <Header 
+    @toggle-form-display="toggleForm"
+    title="here we go" />
     <div v-if="showAddTask">
     <AddTask @add-task="addTask" />
     </div>
@@ -33,6 +35,9 @@ export default {
     };
   },
   methods: {
+    toggleForm() {
+      this.showAddTask = !this.showAddTask
+    },
     addTask(newTask) {
       this.tasks = [...this.tasks, newTask];
     },
