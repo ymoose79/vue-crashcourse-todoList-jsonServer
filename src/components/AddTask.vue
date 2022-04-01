@@ -42,7 +42,8 @@ export default {
       }
 // pass in data into new var 
       const newTask = {
-        id: Math.floor(Math.random() * 100000),
+        // JSON server adds the id, so ours is redundant
+        // id: Math.floor(Math.random() * 100000),
         text: this.text,
         day: this.day,
         reminder: this.reminder,
